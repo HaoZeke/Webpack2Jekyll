@@ -21,7 +21,8 @@ gulp.task('serve', ['browser-sync'], () => {
 
 // Builds Jekyll site (including drafts)
 gulp.task('build', done => {
-  return childProcess.spawn('jekyll', ['build', '--drafts'], {stdio: 'inherit'}).on('close', done);
+  return childProcess.spawn('jekyll', ['build', '--drafts'], {stdio: 'inherit'})
+  .on('close', done);
 });
 
 // First runs jekyll build task, then reloads browser
@@ -84,19 +85,19 @@ gulp.task('browser-sync', ['js', 'sass', 'imagemin', 'build'], () => {
 
 // Compile sass + livereload with css injection + minificiation
 gulp.task('sass', () => {
-  return gulp.src('src/_sass/main.scss')
+  return gulp.src('src/css/main.scss')
     .pipe($.sass({
-      includePaths: ['sass'],
+      includePaths: ['src/_sass'],
       onError: browserSync.notify
     }))
     .pipe($.autoprefixer(['last 15 versions', '> 1%', 'ie 8'], {cascade: true}))
     .pipe($.rename('main.css'))
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('src/css'))
     .pipe(gulp.dest('dist/css'))
     .pipe(reload({stream: true}))
     .pipe($.minifyCss({keepBreaks: false, keepSpecialComments:true}))
     .pipe($.rename({extname: '.min.css'}))
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('src/css'))
     .pipe(gulp.dest('dist/css'));
 });
 
@@ -119,6 +120,7 @@ gulp.task('js', () => {
     .pipe(reload({stream: true}))
     .pipe($.uglify({onError: browserSync.notify}))
     .pipe($.rename({extname: '.min.js'}))
+    .pipe(gulp.dest('src/scripts'))
     .pipe(gulp.dest('dist/scripts'));
 });
 
