@@ -20,7 +20,7 @@ locale                   : "en"
 title_separator          : "-"
 #name                     : "Your Name"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : HaoZeke/Webpack2Jekyll
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -35,6 +35,10 @@ comments:
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : dark # "light" (default), "dark"
+
+# Staticman comments (full configuration in staticman.yml)
+staticman:
+  branch: "master"
 
 # SEO Related
 google_site_verification :
@@ -217,6 +221,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments:  true
       share: true
       related: true
