@@ -92,12 +92,10 @@ gulp.task('sass', () => {
     }))
     .pipe($.autoprefixer(['last 15 versions', '> 1%', 'ie 8'], {cascade: true}))
     .pipe($.rename('main.css'))
-    .pipe(gulp.dest('src/css'))
     .pipe(gulp.dest('dist/css'))
     .pipe(reload({stream: true}))
     .pipe($.minifyCss({keepBreaks: false, keepSpecialComments:true}))
     .pipe($.rename({extname: '.min.css'}))
-    .pipe(gulp.dest('src/css'))
     .pipe(gulp.dest('dist/css'));
 });
 
@@ -115,12 +113,10 @@ gulp.task('js', () => {
       }
     }))
     .pipe($.rename('main.js'))
-    .pipe(gulp.dest('src/scripts'))
     .pipe(gulp.dest('dist/scripts'))
     .pipe(reload({stream: true}))
     .pipe($.uglify({onError: browserSync.notify}))
     .pipe($.rename({extname: '.min.js'}))
-    .pipe(gulp.dest('src/scripts'))
     .pipe(gulp.dest('dist/scripts'));
 });
 
@@ -128,6 +124,5 @@ gulp.task('js', () => {
 gulp.task('imagemin', () => {
   return gulp.src('src/_assets/**/*')
     .pipe($.imagemin())
-    .pipe(gulp.dest('src/assets'))
     .pipe(gulp.dest('dist/assets'));
 });

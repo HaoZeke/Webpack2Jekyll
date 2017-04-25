@@ -210,8 +210,15 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
-  - src/css
-  - scripts/**/
+  - css
+  - scripts
+  - assets
+
+# These are made by gulp so DON'T override
+keep_files:
+  - scripts
+  - css
+  - assets
 
   # Defaults
 defaults:
