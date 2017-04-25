@@ -128,6 +128,6 @@ gulp.task('js', () => {
 gulp.task('imagemin', () => {
   return gulp.src('src/_assets/**/*')
     .pipe($.imagemin())
-    .pipe(gulp.dest('assets'))
+    .pipe(gulp.dest('src/assets'))
     .pipe(gulp.dest('dist/assets'));
 });
