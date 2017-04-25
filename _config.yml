@@ -147,16 +147,23 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layouts:
-    category: archive-taxonomy
-    tag: archive-taxonomy
-  permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/
+# Paginate v2 stuff replacing jekyll-archives
+autopages:
+  enabled: true
+  categories:
+    enabled: true
+    layouts:
+      - "archive-taxonomy.html"
+    title: ":category"
+    permalink: "/categories/:category"
+  collections:
+    enabled: false
+  tags:
+    enabled: true
+    layouts:
+      - "archive-taxonomy.html"
+    title: ":tag" # :tag is replaced by the tag name
+    permalink: "/tag/:tag"
 
 #redcarpet:
 # extensions: ['no_intra_emphasis', 'tables', 'fenced_code_blocks', 'autolink', 'smart',
@@ -173,7 +180,6 @@ gems:
   - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-archives
 #  - jekyll-cloudinary
 
 #pages: /src/_pages
