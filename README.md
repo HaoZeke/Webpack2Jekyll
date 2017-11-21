@@ -1,4 +1,6 @@
 # Webpack2Jekyll
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/HaoZeke/Webpack2Jekyll.svg)](https://greenkeeper.io/)
 This is a static site template for using webpack2 and gulp with jekyll.
 It is heavily inspired by [vann.io](https://github.com/vannio/vann.io) 
 
